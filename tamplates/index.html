@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Kuis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/gaya.css') }}">
+</head>
+<body>
+    <div class="wadah">
+        <h1>🧠 Mini Kuis!</h1>
+        <div id="layar-awal">
+            <label for="nama-pemain">Masukkan Nama Pemain:</label>
+            <input type="text" id="nama-pemain" placeholder="Nama Anda">
+            <p>Pilih kategori pertanyaan:</p>
+            <div id="pilihan-kategori">
+                {% for kategori_item in kategori %}
+                    <button class="tombol-kategori" data-kategori="{{ kategori_item }}">{{ kategori_item }}</button>
+                {% endfor %}
+            </div>
+            <button id="lihat-struktur-kuis">Lihat Struktur Kuis (Pohon)</button>
+        </div>
+
+        <div id="layar-kuis" style="display: none;">
+            <p>Kategori: <span id="kategori-saat-ini"></span> | Level: <span id="level-saat-ini"></span></p>
+            <p>Pertanyaan Nomor <span id="nomor-pertanyaan"></span>/<span id="total-pertanyaan"></span></p>
+            <h2 id="teks-pertanyaan"></h2>
+            <div id="wadah-opsi">
+                </div>
+            <button id="kirim-jawaban">Jawab</button>
+        </div>
+
+        <div id="layar-hasil" style="display: none;">
+            <h2>--- Kuis Selesai ---</h2>
+            <p>Skor akhir Anda: <span id="skor-akhir"></span></p>
+            <p>Waktu tempuh Anda: <span id="waktu-tempuh"></span> detik</p>
+            <button id="main-lagi">Main Lagi</button>
+            <button id="lihat-peringkat">Lihat Peringkat</button>
+        </div>
+
+        <div id="layar-peringkat" style="display: none;">
+            <h2>--- Peringkat Skor Keseluruhan ---</h2>
+            <ul id="daftar-peringkat-keseluruhan">
+                </ul>
+            <h2>--- Peringkat Skor Per Kategori ---</h2>
+            <select id="pilih-peringkat-kategori">
+                <option value="">Pilih Kategori</option>
+                {% for kategori_item in kategori %}
+                    <option value="{{ kategori_item }}">{{ kategori_item }}</option>
+                {% endfor %}
+            </select>
+            <ul id="daftar-peringkat-kategori">
+                </ul>
+            <button id="kembali-ke-awal">Kembali ke Awal</button>
+        </div>
+
+        <div id="layar-tampilan-pohon" style="display: none;">
+            <h2>--- Struktur Kuis (Tampilan Pohon) ---</h2>
+            <div id="wadah-pohon-kuis">
+                </div>
+            <button id="kembali-dari-tampilan-pohon">Kembali ke Awal</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/skrip.js') }}"></script>
+</body>
+</html>

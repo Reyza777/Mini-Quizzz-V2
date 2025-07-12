@@ -1,0 +1,262 @@
+/* Import font dari Google Fonts - pilihan futuristik */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap');
+
+body {
+    font-family: 'Share Tech Mono', monospace; /* Font monospace untuk nuansa teknis */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #1a1a2e; /* Latar belakang gelap */
+    color: #e0e0e0; /* Warna teks terang */
+    margin: 0;
+    overflow-x: hidden; /* Mencegah scroll horizontal */
+}
+
+.wadah {
+    background-color: #0f0f1c; /* Warna sedikit lebih terang dari body untuk kontras */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.4); /* Efek glow neon biru */
+    text-align: center;
+    width: 90%;
+    max-width: 700px;
+    border: 1px solid #00ffff; /* Garis tepi neon */
+    position: relative;
+    z-index: 1; /* Pastikan di atas elemen latar belakang */
+}
+
+/* Animasi latar belakang untuk nuansa dinamis (opsional, bisa sangat intensif CPU) */
+/*
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #0a0a1a, #001f3f, #0a0a1a);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    z-index: 0;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+*/
+
+h1 {
+    font-family: 'Orbitron', sans-serif; /* Font futuristik untuk judul */
+    color: #00ffff; /* Warna neon terang */
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff; /* Efek glow */
+    margin-bottom: 30px;
+    font-size: 2.8em;
+}
+
+h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: #00e0ff; /* Warna neon sedikit berbeda */
+    text-shadow: 0 0 8px #00e0ff;
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #a0a0a0;
+    line-height: 1.6;
+}
+
+label {
+    color: #00ccff;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    display: block;
+}
+
+input[type="text"],
+select {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin-bottom: 25px;
+    border: 1px solid #00ccff; /* Border neon */
+    border-radius: 5px;
+    background-color: #05050f; /* Latar belakang input gelap */
+    color: #e0e0e0;
+    font-size: 1em;
+    transition: all 0.3s ease; /* Transisi halus */
+    box-shadow: 0 0 5px rgba(0, 204, 255, 0.5); /* Shadow pada input */
+}
+
+input[type="text"]:focus,
+select:focus {
+    outline: none;
+    border-color: #00ffff;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.8); /* Glow lebih kuat saat fokus */
+}
+
+/* Gaya umum untuk semua tombol */
+.tombol-kategori, #kirim-jawaban, #main-lagi, #lihat-peringkat, #kembali-ke-awal, #lihat-struktur-kuis, #kembali-dari-tampilan-pohon {
+    background-color: #007bff; /* Warna dasar tombol, akan ditimpa oleh gradient */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 8px;
+    font-size: 1.1em;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.4); /* Shadow untuk tombol */
+    background: linear-gradient(45deg, #007bff, #00c0ff); /* Gradient untuk efek modern */
+    position: relative;
+    overflow: hidden; /* Untuk efek hover shine */
+}
+
+.tombol-kategori:hover, #kirim-jawaban:hover, #main-lagi:hover, #lihat-peringkat:hover, #kembali-ke-awal:hover, #lihat-struktur-kuis:hover, #kembali-dari-tampilan-pohon:hover {
+    transform: translateY(-3px); /* Sedikit naik saat hover */
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.8), 0 0 5px rgba(0, 123, 255, 0.6); /* Glow lebih kuat saat hover */
+}
+
+/* Efek "shine" pada tombol saat hover */
+.tombol-kategori::after, #kirim-jawaban::after, #main-lagi::after, #lihat-peringkat::after, #kembali-ke-awal::after, #lihat-struktur-kuis::after, #kembali-dari-tampilan-pohon::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: skewX(-20deg);
+    transition: all 0.5s ease;
+}
+
+.tombol-kategori:hover::after, #kirim-jawaban:hover::after, #main-lagi:hover::after, #lihat-peringkat:hover::after, #kembali-ke-awal:hover::after, #lihat-struktur-kuis:hover::after, #kembali-dari-tampilan-pohon:hover::after {
+    left: 100%;
+}
+
+
+.tombol-opsi {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid #00ccff; /* Border neon */
+    border-radius: 5px;
+    background-color: #05050f; /* Latar belakang input gelap */
+    color: #e0e0e0;
+    cursor: pointer;
+    text-align: left;
+    font-size: 1em;
+    transition: all 0.2s ease;
+    box-shadow: 0 0 5px rgba(0, 204, 255, 0.3);
+}
+
+.tombol-opsi:hover {
+    background-color: #00000a;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+}
+
+.tombol-opsi.terpilih {
+    background-color: #003366; /* Biru gelap */
+    border-color: #00ffff;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+}
+
+.tombol-opsi.benar {
+    background-color: #0a4020; /* Hijau gelap */
+    border-color: #39ff14; /* Neon hijau */
+    box-shadow: 0 0 15px rgba(57, 255, 20, 0.8);
+}
+
+.tombol-opsi.salah {
+    background-color: #601010; /* Merah gelap */
+    border-color: #ff0055; /* Neon merah */
+    box-shadow: 0 0 15px rgba(255, 0, 85, 0.8);
+}
+
+#wadah-opsi {
+    margin-bottom: 25px;
+}
+
+#daftar-peringkat-keseluruhan, #daftar-peringkat-kategori {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin-top: 20px;
+}
+
+#daftar-peringkat-keseluruhan li, #daftar-peringkat-kategori li {
+    padding: 10px 0;
+    border-bottom: 1px dotted rgba(0, 255, 255, 0.3); /* Garis dotted neon */
+    color: #b0b0b0;
+}
+
+#daftar-peringkat-keseluruhan li:last-child, #daftar-peringkat-kategori li:last-child {
+    border-bottom: none;
+}
+
+/* Gaya untuk tampilan pohon */
+#wadah-pohon-kuis {
+    text-align: left;
+    margin-top: 25px;
+    padding: 15px;
+    border: 1px solid #00ccff; /* Border neon */
+    border-radius: 8px;
+    background-color: #05050f;
+    box-shadow: 0 0 15px rgba(0, 204, 255, 0.5);
+}
+
+#wadah-pohon-kuis ul {
+    list-style-type: none;
+    padding-left: 25px; /* Indent lebih dalam */
+}
+
+#wadah-pohon-kuis ul li {
+    margin-bottom: 8px;
+    font-size: 1.2em;
+    color: #e0e0e0;
+}
+
+#wadah-pohon-kuis ul ul li {
+    font-size: 1.1em;
+    color: #a0a0a0;
+}
+
+.simpul-kategori {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    color: #00ffff; /* Neon biru */
+    text-shadow: 0 0 5px #00ffff;
+}
+
+.simpul-level {
+    font-style: italic;
+    color: #39ff14; /* Neon hijau */
+    text-shadow: 0 0 5px #39ff14;
+}
+
+/* Responsif dasar */
+@media (max-width: 768px) {
+    .wadah {
+        padding: 20px;
+        max-width: 95%;
+    }
+    h1 {
+        font-size: 2em;
+    }
+    h2 {
+        font-size: 1.5em;
+    }
+    .tombol-kategori, #kirim-jawaban, #main-lagi, #lihat-peringkat, #kembali-ke-awal, #lihat-struktur-kuis, #kembali-dari-tampilan-pohon {
+        padding: 10px 15px;
+        font-size: 0.9em;
+    }
+    input[type="text"], select {
+        padding: 10px;
+    }
+}
